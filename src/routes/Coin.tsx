@@ -138,39 +138,7 @@ function Coin() {
     ["tickers", coinId],
     () => fetchCoinTickers(coinId!)
   );
-  /*   const [loading, setLoading] = useState(true);
-  const [info, setInfo] = useState<InfoData>();
-  const [priceInfo, setPriceInfo] = useState<PriceData>();
 
-
-  const API_KEY = "temp_42b93062c7f214fc68ed555daa6d0487";
-  useEffect(() => {
-    (async () => {
-      const infoData = await (
-        await fetch(
-          `https://proxy.cors.sh/https://api.coinpaprika.com/v1/coins/${coinId}`,
-          {
-            headers: {
-              "x-cors-api-key": API_KEY,
-            },
-          }
-        )
-      ).json();
-      const priceData = await (
-        await fetch(
-          `https://proxy.cors.sh/https://api.coinpaprika.com/v1/tickers/${coinId}`,
-          {
-            headers: {
-              "x-cors-api-key": API_KEY,
-            },
-          }
-        )
-      ).json();
-      setInfo(infoData);
-      setPriceInfo(priceData);
-      setLoading(false);
-    })();
-  }, [coinId]); */
   const loading = infoLoading || tickersLoading;
 
   return (
@@ -216,7 +184,7 @@ function Coin() {
             </Tab>
           </Tabs>
 
-          <Outlet />
+          <Outlet context={{coinId}}/>
         </>
       )}
     </Container>
