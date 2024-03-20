@@ -3,7 +3,7 @@ import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { fetchCoins } from "../api";
-
+import { Helmet } from "react-helmet";
 const Title = styled.h1`
   font-size: 48px;
   color: ${(p) => p.theme.accentColor};
@@ -60,6 +60,9 @@ function Coins() {
   const { isLoading, data } = useQuery<ICoin[]>("allCoins", fetchCoins);
   return (
     <Container>
+      <Helmet>
+        <title>코인</title>
+      </Helmet>
       <Header>
         <Title>코인</Title>
       </Header>
@@ -69,7 +72,7 @@ function Coins() {
         <CoinList>
           {data?.slice(0, 50).map((coin) => (
             <Coin key={coin.id}>
-              <Link to={`/${coin.id}`} state={coin.name}>
+              <Link to={`/${coin.id}/price`} state={coin.name}>
                 <Img
                   src={`https://cryptocurrencyliveprices.com/img/${coin.id}.png`}
                 />
