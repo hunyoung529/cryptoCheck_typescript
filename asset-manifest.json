@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/hunyoung529/cryptoCheck_typescript/static/css/main.f855e6bc.css",
+    "main.js": "/hunyoung529/cryptoCheck_typescript/static/js/main.efddbffb.js",
+    "static/js/453.92ff71cb.chunk.js": "/hunyoung529/cryptoCheck_typescript/static/js/453.92ff71cb.chunk.js",
+    "index.html": "/hunyoung529/cryptoCheck_typescript/index.html",
+    "main.f855e6bc.css.map": "/hunyoung529/cryptoCheck_typescript/static/css/main.f855e6bc.css.map",
+    "main.efddbffb.js.map": "/hunyoung529/cryptoCheck_typescript/static/js/main.efddbffb.js.map",
+    "453.92ff71cb.chunk.js.map": "/hunyoung529/cryptoCheck_typescript/static/js/453.92ff71cb.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f855e6bc.css",
+    "static/js/main.efddbffb.js"
+  ]
+}
