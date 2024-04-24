@@ -27,7 +27,6 @@ const PriceDetail = styled.div`
     display: block;
     margin-top: 10px;
     color: ${(props) => props.color || "#44BD32"};
-    line-height: 30px;
   }
 `;
 interface ChartProps {

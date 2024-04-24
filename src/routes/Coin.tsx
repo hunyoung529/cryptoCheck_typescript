@@ -156,65 +156,63 @@ function Coin() {
 
   const loading = infoLoading || tickersLoading;
   return (
-    <HelmetProvider>
-      <Container>
+    <Container>
+      <HelmetProvider>
         <Helmet>
           <title>
             {state ? state : loading ? "Loading.." : infoData?.name}
           </title>
         </Helmet>
+      </HelmetProvider>
 
-        <Header>
-          <Title>
-            {state ? state : loading ? "Loading.." : infoData?.name}
-          </Title>
-          <BackBtn to="/">
-            <FontAwesomeIcon icon={faArrowLeft} />
-          </BackBtn>
-        </Header>
-        {loading ? (
-          <Loader>Loading...</Loader>
-        ) : (
-          <>
-            <Overview>
-              <OverviewItem>
-                <span>Rank:</span>
-                <span>{infoData?.rank}</span>
-              </OverviewItem>
-              <OverviewItem>
-                <span>Symbol:</span>
-                <span>{infoData?.symbol}</span>
-              </OverviewItem>
-              <OverviewItem>
-                <span>Current Price:</span>
-                <span>{tickersData?.quotes.USD.price.toFixed(3)}</span>
-              </OverviewItem>
-            </Overview>
-            <Description>{infoData?.description}</Description>
-            <Overview>
-              <OverviewItem>
-                <span>Total Suply:</span>
-                <span>{tickersData?.total_supply}</span>
-              </OverviewItem>
-              <OverviewItem>
-                <span>Max Supply:</span>
-                <span>{tickersData?.max_supply}</span>
-              </OverviewItem>
-            </Overview>
-            <Tabs>
-              <Tab $isActive={priceMatch !== null}>
-                <Link to="price">Price</Link>
-              </Tab>
-              <Tab $isActive={chartMatch !== null}>
-                <Link to="chart">Chart</Link>
-              </Tab>
-            </Tabs>
+      <Header>
+        <Title>{state ? state : loading ? "Loading.." : infoData?.name}</Title>
+        <BackBtn to="/">
+          <FontAwesomeIcon icon={faArrowLeft} />
+        </BackBtn>
+      </Header>
+      {loading ? (
+        <Loader>Loading...</Loader>
+      ) : (
+        <>
+          <Overview>
+            <OverviewItem>
+              <span>Rank:</span>
+              <span>{infoData?.rank}</span>
+            </OverviewItem>
+            <OverviewItem>
+              <span>Symbol:</span>
+              <span>{infoData?.symbol}</span>
+            </OverviewItem>
+            <OverviewItem>
+              <span>Current Price:</span>
+              <span>{tickersData?.quotes.USD.price.toFixed(3)}</span>
+            </OverviewItem>
+          </Overview>
+          <Description>{infoData?.description}</Description>
+          <Overview>
+            <OverviewItem>
+              <span>Total Suply:</span>
+              <span>{tickersData?.total_supply}</span>
+            </OverviewItem>
+            <OverviewItem>
+              <span>Max Supply:</span>
+              <span>{tickersData?.max_supply}</span>
+            </OverviewItem>
+          </Overview>
+          <Tabs>
+            <Tab $isActive={priceMatch !== null}>
+              <Link to="price">Price</Link>
+            </Tab>
+            <Tab $isActive={chartMatch !== null}>
+              <Link to="chart">Chart</Link>
+            </Tab>
+          </Tabs>
 
-            <Outlet context={{ coinId }} />
-          </>
-        )}
-      </Container>
-    </HelmetProvider>
+          <Outlet context={{ coinId }} />
+        </>
+      )}
+    </Container>
   );
 }
 

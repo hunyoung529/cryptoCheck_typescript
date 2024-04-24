@@ -75,7 +75,7 @@ function Coins() {
             <Coin key={coin.id}>
               <Link to={`/${coin.id}/price`} state={coin.name}>
                 <Img
-                  src={`https://cryptocurrencyliveprices.com/img/${coin.id}.png`}
+                  src={`https://static.coinpaprika.com/coin/${coin.id}/logo.png`}
                 />
                 {coin.name} &rarr;
               </Link>
