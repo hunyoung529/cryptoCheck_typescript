@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { fetchCoins } from "../api";
 import { Helmet, HelmetProvider } from "react-helmet-async";
+import { useSetRecoilState } from "recoil";
+import { isDarkState } from "../atoms";
 const Title = styled.h1`
   font-size: 48px;
   color: ${(p) => p.theme.accentColor};
@@ -21,7 +23,7 @@ const Header = styled.header`
 const CoinList = styled.ul``;
 const Coin = styled.li`
   background-color: white;
-  color: ${(props) => props.theme.bgColor};
+  color: ${(props) => props.theme.textColor};
   margin-bottom: 10px;
   border-radius: 15px;
   a {
@@ -57,6 +59,9 @@ interface ICoin {
 }
 function Coins() {
   const { isLoading, data } = useQuery<ICoin[]>("allCoins", fetchCoins);
+
+  const setTheme = useSetRecoilState(isDarkState);
+  const toggleTheme = () => setTheme((prev) => !prev);
   return (
     <Container>
       <HelmetProvider>
@@ -66,6 +71,7 @@ function Coins() {
       </HelmetProvider>
       <Header>
         <Title>코인</Title>
+        <button onClick={toggleTheme}>Toggle MNode</button>
       </Header>
       {isLoading ? (
         <Loader>Loading</Loader>

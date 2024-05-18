@@ -53,6 +53,7 @@ const OverviewItem = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  color: ${(props) => props.theme.textColor};
   span:first-child {
     font-size: 10px;
     font-weight: 400;
